@@ -1,0 +1,14 @@
+uuid: a55603f9-02e6-4848-9379-28faced35d3d
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.editor
+id: editor-outsider
+label: Outsider
+weight: -101
+internal: true
+audience: outsider
+group_type: editor
+permissions_ui: true
+permissions: {  }

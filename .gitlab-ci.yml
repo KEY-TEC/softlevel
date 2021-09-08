@@ -1,0 +1,62 @@
+stages:
+  - build
+  - deploy
+
+# Using artifact:deploy to build and push the project to
+# the artifact repository. The repository is configured in blt/blt.yml.
+# It is possible to configure multiple remotes.
+# This stage needs two gitlab variables:
+#      ENVIRONMENT: arena
+#      SSH_KEY: A SSH private KEY. This key is used to connect to the remote.
+build:
+  cache:
+    key: node_module
+    paths:
+      - docroot/themes/wingsuit/node_modules
+  stage: build
+  tags:
+    - docker
+  image: docksal/cli:2.13-php7.4
+  before_script:
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - source ~/.profile
+  script:
+    - composer install
+    - ./vendor/bin/blt artifact:deploy --branch=${CI_COMMIT_REF_NAME}
+  environment:
+    name: arena/$CI_COMMIT_REF_NAME
+    url: https://$CI_COMMIT_REF_NAME.arena.dev.key-tec.de
+    on_stop: stop_environment
+  only:
+    refs:
+      - branches
+  except:
+    - /.*-build$/
+    - schedules
+
+# Stage prod:update is used to run the update process on production
+prod:update:
+  stage: deploy
+  needs: ["build"]
+  tags:
+    - docker
+  variables:
+    GIT_STRATEGY: none
+  image: docksal/cli:2.13-php7.4
+  only:
+    variables:
+      - $ENVIRONMENT == "arena"
+    refs:
+      - master
+      - develop
+  before_script:
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+  script:
+    - set -e
+    - echo 'Run SSH command HERE to pull from artifact repository'
+    - echo 'Example:'
+    - echo 'ssh user@host "cd /checkout_folder; chmod 777 sites/default; git fetch; git reset --hard origin/${CI_COMMIT_REF_NAME}; ./vendor/bin/blt artifact:update:drupal:all-sites --no-interaction"'
+  when: manual
+

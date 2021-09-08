@@ -1,0 +1,14 @@
+uuid: c5095187-a670-43a5-9ab0-cf16021db94c
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.editor
+id: editor-editor
+label: Editor
+weight: 4
+internal: false
+audience: member
+group_type: editor
+permissions_ui: true
+permissions: {  }

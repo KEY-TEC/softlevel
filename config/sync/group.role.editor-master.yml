@@ -1,0 +1,14 @@
+uuid: 59210032-6802-4f00-ba64-4e2e6b5b580e
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.editor
+id: editor-master
+label: Master
+weight: 3
+internal: false
+audience: member
+group_type: editor
+permissions_ui: true
+permissions: {  }

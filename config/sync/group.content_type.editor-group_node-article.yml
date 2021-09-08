@@ -1,0 +1,19 @@
+uuid: 19d805a7-586b-4e11-a60b-9ff88c2c0ecc
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.editor
+    - node.type.article
+  module:
+    - gnode
+    - node
+id: editor-group_node-article
+label: 'Editor: Group node (Article)'
+description: 'Adds <em class="placeholder">Article</em> content to groups both publicly and privately.'
+group_type: editor
+content_plugin: 'group_node:article'
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 1
+  use_creation_wizard: false

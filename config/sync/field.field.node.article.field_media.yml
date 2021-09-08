@@ -1,0 +1,31 @@
+uuid: 23efe2fc-3680-4837-9af9-bbabd279503a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_media
+    - media.type.image
+    - media.type.video
+    - node.type.article
+id: node.article.field_media
+field_name: field_media
+entity_type: node
+bundle: article
+label: Media
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+      video: video
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: image
+field_type: entity_reference

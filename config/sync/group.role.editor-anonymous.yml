@@ -1,0 +1,14 @@
+uuid: 676f1f1f-86d5-4e9b-a4ac-226baf3a8014
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.editor
+id: editor-anonymous
+label: Anonymous
+weight: -102
+internal: true
+audience: anonymous
+group_type: editor
+permissions_ui: true
+permissions: {  }

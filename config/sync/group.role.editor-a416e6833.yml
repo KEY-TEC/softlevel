@@ -1,0 +1,17 @@
+uuid: e65c4ed6-c5b9-4166-a875-d5f9f7b02f8b
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.editor
+  enforced:
+    config:
+      - user.role.administrator
+id: editor-a416e6833
+label: Administrator
+weight: 2
+internal: true
+audience: outsider
+group_type: editor
+permissions_ui: false
+permissions: {  }

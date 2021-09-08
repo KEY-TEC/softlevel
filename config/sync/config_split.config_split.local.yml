@@ -1,0 +1,16 @@
+uuid: c51b7bab-1e39-464a-a4cd-099d9bf7fbb9
+langcode: en
+status: false
+dependencies: {  }
+id: local
+label: local
+description: 'Split for local development'
+folder: ../config/envs/local
+module:
+  devel: 0
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0

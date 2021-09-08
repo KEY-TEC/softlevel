@@ -1,0 +1,11 @@
+uuid: d4f4574a-0dc4-4d61-bc78-03dedd449a70
+langcode: en
+status: true
+dependencies: {  }
+id: editor
+label: Editor
+description: ''
+new_revision: true
+creator_membership: true
+creator_wizard: true
+creator_roles: {  }

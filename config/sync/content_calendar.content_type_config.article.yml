@@ -1,0 +1,7 @@
+uuid: 9a67d6b5-96c4-46e0-9b51-1f4a8a20e69c
+langcode: en
+status: true
+dependencies: {  }
+id: article
+label: Article
+color: '#0074bd'
